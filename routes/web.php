@@ -35,3 +35,4 @@ Route::post('santri/simpan', [SantriController::class, 'simpansantri'])->name('s
 Route::get('santri/ubah/{id_santri}', [SantriController::class, 'ubahsantri'])->name('ubahsantri')->middleware('auth');
 Route::post('santri/update', [SantriController::class, 'updatesantri'])->name('updatesantri')->middleware('auth');
 Route::get('santri/hapus/{id_santri}', [SantriController::class, 'hapussantri'])->name('hapussantri')->middleware('auth');
+Route::get('santri/cetak', [SantriController::class, 'cetaksantri'])->name('cetaksantri')->middleware('auth');

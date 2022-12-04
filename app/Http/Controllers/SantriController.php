@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SantriModel;
+use PDF;
 
 class SantriController extends Controller
 {
@@ -62,5 +63,14 @@ class SantriController extends Controller
             ->delete();
 
         return redirect()->route('tampilsantri');
+    }
+
+    public function cetaksantri()
+    {
+        $santri = SantriModel::select('*')
+            ->get();
+
+        $pdf = PDF::loadView('cetaksantri', ['santri' => $santri]);
+        return $pdf->stream('Laporan-Data-Santri.pdf');
     }
 }
